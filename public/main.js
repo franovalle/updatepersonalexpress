@@ -28,7 +28,7 @@ var update = document.getElementsByClassName("fa-pencil");
       });
 });*/
 
-//update
+
 Array.from(update).forEach(function(element) {
   element.addEventListener('click', function(){
     const date = this.parentNode.parentNode.childNodes[1].innerText
@@ -53,7 +53,7 @@ Array.from(update).forEach(function(element) {
     })
   });
 });
-//update 
+
 //Note to self: thinking of adding a strikeout feature of the bad not only delete- I need to follow up. 
 
 
