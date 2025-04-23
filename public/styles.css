@@ -1,0 +1,7 @@
+body{
+  background: pink;
+}
+
+ul, li {
+  list-style-type: none;
+}

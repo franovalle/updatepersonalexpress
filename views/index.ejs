@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Diary</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="font-awesome.min.css">
+</head>
+<body>
+  <h1>Dear Diary...</h1>
+  <h2>Your secrets are safe with me.</h2>
+  <p>If it was a bad day, update it using the pencil, and keep it pushing!</p>
+
+  <form action="/entries" method="POST">
+   <input type="date"  placeholder= "date" name="date">
+   <input type="text" placeholder="Dear diary..." name="entry">
+    <!--<textarea name="entry" rows="3" cols="30" placeholder="Dear Diary...."></textarea>-->
+    <button type="submit">Lock</button>
+  </form>
+  
+  <!--<div>
+    <h2>Bad Day? </h2>
+    <p>We do not need this negativity in your diary!</p>
+    <button id="update-button" class="hidden">Update Entry</button>
+  </div>-->
+
+
+  
+  <ul class="entries">
+  <% for(var i=0; i<entries.length; i++) {%>
+    <li class="entries">
+      <span><%= entries[i].date %></span>
+      <span><%= entries[i].entry %></span>
+      <!--<span><%= entries[i].heart %></span>-->
+      <span><%= entries[i].trash %></span>
+      <span><%= entries[i].update %></span>
+      <!--<span><i class="fa fa-heart" aria-hidden="true"></i></span>-->
+      <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+      <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+    </li>
+  <% } %>
+  </ul>
+
+  
+
+
+
+  <script src="main.js"></script>
+
+</body>
+</html>
