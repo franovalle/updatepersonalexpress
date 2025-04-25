@@ -9,12 +9,15 @@
 <body>
   <h1>Dear Diary...</h1>
   <h2>Your secrets are safe with me.</h2>
-  <p>If it was a bad day, update it using the pencil, and keep it pushing!</p>
+  <p>Not feeling good after your daily post?! Use the pencil to get a daily reminder!</p> 
+  <!--<p>Feeling great about your day? Use the heart, to love the post!</p>-->
+  <!--Note to self: This app can be improved, hope to make it into a medical diary-->
 
   <form action="/entries" method="POST">
    <input type="date"  placeholder= "date" name="date">
    <input type="text" placeholder="Dear diary..." name="entry">
-   
+   <!--<textarea name="entry" rows="3" cols="30" placeholder="Dear Diary...."></textarea>--note to self: I like the input box better for the layout, for now-->
+   <button type="submit">Lock</button>
   </form>
   
   <!--<div>
@@ -28,13 +31,13 @@
   <ul class="entries">
   <% for(var i=0; i<entries.length; i++) {%>
     <li class="entries">
-      <span><%= entries[i].date %></span>
+     <span><%= entries[i].date %></span>
       <span><%= entries[i].entry %></span>
       <!--<span><%= entries[i].heart %></span>-->
       <span><%= entries[i].trash %></span>
       <span><%= entries[i].update %></span>
       <!--<span><i class="fa fa-heart" aria-hidden="true"></i></span>-->
-      <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+      <span><i class="fa fa-pencil" aria-hidden="true"></i></span><!--Note to self: I need to remove pencil from update post, will follow up-->
       <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
     </li>
   <% } %>

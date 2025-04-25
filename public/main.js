@@ -1,4 +1,4 @@
-var heart = document.getElementsByClassName("fa-heart");
+//var heart = document.getElementsByClassName("fa-heart");
 var trash = document.getElementsByClassName("fa-trash-o");
 var update = document.getElementsByClassName("fa-pencil");
 
@@ -31,15 +31,15 @@ var update = document.getElementsByClassName("fa-pencil");
 
 Array.from(update).forEach(function(element) {
   element.addEventListener('click', function(){
-    const date = this.parentNode.parentNode.childNodes[1].innerText
+   const date = this.parentNode.parentNode.childNodes[1].innerText
     const entry = this.parentNode.parentNode.childNodes[3].innerText
-    const heart = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
+    //const heart = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
     fetch('entries', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        'date': date,
-        'entry': 'Try again tomorrow'
+        'date': date,//Note to self: need to get some more help on a more efficient way to do this 
+        'entry': 'Daily Reminder: Going thru a tough time, remember He is not done with you yet, so try again, can wait till your next post. Love you!'
         
 
       })
@@ -54,13 +54,14 @@ Array.from(update).forEach(function(element) {
   });
 });
 
-//Note to self: thinking of adding a strikeout feature of the bad not only delete- I need to follow up. 
+//Note to self: thinking of adding a strikeout feature of the bad day not only delete- I need to follow up. 
+
 
 
 
 Array.from(trash).forEach(function(element) {
       element.addEventListener('click', function(){
-        const date = this.parentNode.parentNode.childNodes[1].innerText
+       const date = this.parentNode.parentNode.childNodes[1].innerText
         const entry = this.parentNode.parentNode.childNodes[3].innerText
         fetch('entries', {
           method: 'delete',

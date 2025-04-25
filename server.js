@@ -30,9 +30,9 @@ app.get('/', (req, res) => {
     res.render('index.ejs', {entries: result})
   })
 })
-
+//note to self: removed date to see layout date: req.body.date,
 app.post('/entries', (req, res) => {
-  db.collection('entries').insertOne({date: req.body.date, entry: req.body.entry, heart: 0}, (err, result) => {
+  db.collection('entries').insertOne({date: req.body.date, entry: req.body.entry}, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
     res.redirect('/')
@@ -43,17 +43,19 @@ app.post('/entries', (req, res) => {
   db.collection('entries')
   .findOneAndUpdate({date: req.body.date, entry: req.body.entry}, {
     $set: {
-      heart:req.body.heart +1
+      heart:req.body.heart 
       
     }
   }, {
-    sort: {_id: -1},
+    /*sort: {_id: -1},
     upsert: true
   }, (err, result) => {
     if (err) return res.send(err)
     res.send(result)
   })
 })*/
+
+//note to sef: removed date to see layout 
 app.put('/entries', (req, res) => {
   db.collection('entries')
   .findOneAndUpdate({date: req.body.date, entry: req.body.entry}, {
@@ -91,7 +93,7 @@ app.put('/entries', (req, res) => {
 
 
 
-
+//note to self: removed date to see layout 
 app.delete('/entries', (req, res) => {
   db.collection('entries').findOneAndDelete({date: req.body.date, entry: req.body.entry}, (err, result) => {
     if (err) return res.send(500, err)
