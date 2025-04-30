@@ -60,7 +60,8 @@ app.put('/entries', (req, res) => {
   db.collection('entries')
   .findOneAndUpdate({date: req.body.date, entry: req.body.entry}, {
     $set: {
-      update:req.body.update
+      update: req.body.update
+      
       
     }
   }, {
